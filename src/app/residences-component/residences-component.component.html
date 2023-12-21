@@ -1,0 +1,10 @@
+<h3>Liste des residences</h3>
+<ul class="list-group"*ngFor="let r of listResidences">
+
+<li class="list-group-item">{{r.id}} {{r.name}} {{r.address}}
+<!-- <button type="button" class="btn btn-primary" (click)="checkAppart(r.id)">Show appartement</button>
+<button class="btn btn-info" [routerLink]="['/residence', r.id]">Details</button> -->
+<button class="btn btn-primary" [routerLink]="['/showApparts', r.id]">Show Appart</button>
+
+</li>
+</ul>

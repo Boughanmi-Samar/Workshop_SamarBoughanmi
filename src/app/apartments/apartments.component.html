@@ -1,0 +1,29 @@
+    <div *ngIf="list && list.length !== 0; else noApartments">
+        <input type="text" id="surfaceSearch" [(ngModel)]="surface" placeholder="search" style="margin: 1%;" />
+        <table class="table" border="2">
+        <tr>
+            <th>appartNum</th>
+            <th>floorNum</th>
+            <th>surface</th>
+            <th>terrace</th>
+        </tr>
+        <tr *ngFor="let a of listApartments">
+            <ng-container *ngIf="a.surface==surface||surface==null">
+    
+            <td>{{a.appartNum}}</td>
+            <td>{{a.floorNum}}</td>
+            <td>{{a.surface}}</td>
+            <td>{{a.terrace}}</td>
+            <td><button class="btn btn-info" (click)="likeAppart(a.id)">Like</button></td>
+            <button class="btn btn-info" [routerLink]="['/appartment-details', a.id]">Details</button>
+    
+        </ng-container>
+    
+        </table>
+    
+    </div>
+    
+    <ng-template #noApartments>
+     <p>No Apartment found</p>
+      </ng-template>
+  
